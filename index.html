@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>Rendm Nambr Generátor</title>
+	<link rel="stylesheet" href="styl.css" ;>
+</head>
+
+<body>
+	<div id="wrap">
+		<div id="displej">0</div>
+		<input id="min" class="formular_hodnoty" placeholder="Minimální hodnota" type="number" value="0" autofocus></input>
+		<input id="max" class="formular_hodnoty" placeholder="Maximální hodnota" type="number" value="0"></input>
+		<input id="batn" type="submit" value="Staniž se!" onclick="generujMezi()">
+	</div>
+
+	<script src="generator.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker
+				.register('/worker.js')
+				.then(function () { console.log("Service Worker Registered"); });
+		}
+	</script>
+
+</body>
+
+</html>
