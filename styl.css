@@ -1,9 +1,14 @@
+html, body {
+	background-color: #eceff1;
+}
+
 #wrap {
 	max-width: 500px;
 	margin: auto;
-	margin-top: 10%;
+	height: 100%;
 }
 #displej {
+	margin-top: 10%;
 	font-size: 500%;
 	text-align: center;
 }
