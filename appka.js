@@ -12,7 +12,7 @@ function generujMezi() {
 
 function registrujWorkera() {
 	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/renug/worker.js', { scope: '/renug/' })
+		navigator.serviceWorker.register('/genace/worker.js', { scope: '/genace/' })
 			.then(function (reg) {
 				// registration worked
 				console.log('Registration succeeded. Scope is ' + reg.scope);
