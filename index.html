@@ -20,18 +20,19 @@
 	<link rel="apple-touch-icon" type="image/svg+xml" href="ikona.svg">
 
 	<title>Generátor Náhodných Cest</title>
-	<link rel="stylesheet" href="styl.css" ;>
+	<link rel="stylesheet" href="css/styl.css" ;>
 </head>
 
 <body>
-	<div id="wrap">
-		<div id="displej">0</div>
+	<div id="generator">
+		<div class="displej" id='cisla_d'>0</div>
 		<input id="min" class="formular_hodnoty" placeholder="Minimální hodnota" type="number" value="0" autofocus></input>
 		<input id="max" class="formular_hodnoty" placeholder="Maximální hodnota" type="number" value="10"></input>
 		<input id="batn" type="submit" value="Staniž se!" onclick="generujMezi()">
 	</div>
 
-	<script src="appka.js"></script>
+	<script src="js/appka.js"></script>
+	<script src="js/prvky.js"></script>
 </body>
 
 </html>

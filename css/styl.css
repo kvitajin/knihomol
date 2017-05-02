@@ -2,12 +2,12 @@ html, body {
 	background-color: #eceff1;
 }
 
-#wrap {
+#generator {
 	max-width: 500px;
 	margin: auto;
 	height: 100%;
 }
-#displej {
+.displej {
 	margin-top: 10%;
 	font-size: 500%;
 	text-align: center;
