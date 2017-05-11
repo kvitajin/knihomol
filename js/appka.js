@@ -18,12 +18,47 @@ function registrujWorkera() {
 			.then(function (reg) {
 				// registration worked
 				console.log("Registration succeeded. Scope is " + reg.scope);
-				reg.update();
-				
+
 			}).catch(function (error) {
 				// registration failed
 				console.log("Registration failed with " + error);
 			});
 	}
 }
+
+function nastavMaterial() {
+	Vue.use(VueMaterial);
+
+	Vue.material.registerTheme('default', {
+		primary: 'teal',
+		accent: 'red',
+		warn: 'red',
+		background: {
+			color: 'blue-grey',
+			hue: 50
+		}
+	});
+
+	var App = new Vue({
+		el: '#genace',
+		methods: {
+			toggleLeftSidenav() {
+				this.$refs.leftSidenav.toggle();
+			},
+			open(ref) {
+				console.log('Opened: ' + ref);
+			},
+			close(ref) {
+				console.log('Closed: ' + ref);
+			}
+		},
+		data: {
+			pocatecniHodnotaMin: 0,
+			pocatecniHodnotaMax: 9
+		}
+	});
+
+}
+
+nastavMaterial();
 registrujWorkera();

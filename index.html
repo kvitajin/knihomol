@@ -20,19 +20,48 @@
 	<link rel="apple-touch-icon" type="image/svg+xml" href="ikona.svg">
 
 	<title>Generátor Náhodných Cest</title>
-	<link rel="stylesheet" href="css/styl.css" ;>
+	<link rel="stylesheet" href="css/styl.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+	<link rel="stylesheet" href="vendor/vue-material.css">
 </head>
 
 <body>
-	<div id="generator">
-		<div class="displej" id='cisla_d'>0</div>
-		<input id="min" class="formular_hodnoty" placeholder="Minimální hodnota" type="number" value="0" autofocus></input>
-		<input id="max" class="formular_hodnoty" placeholder="Maximální hodnota" type="number" value="10"></input>
-		<input id="batn" type="submit" value="Staniž se!" onclick="generujMezi()">
-	</div>
+	<div id="genace" v-cloak>
+		<md-toolbar>
+			<md-button class="md-icon-button" @click.native="toggleLeftSidenav">
+				<img src="img/menu.svg">
+			</md-button>
 
-	<script src="js/appka.js"></script>
-	<script src="js/prvky.js"></script>
+			<h2 class="md-title">Genace</h2>
+		</md-toolbar>
+
+		<div id="generator">
+			<div class="displej" id='cisla_d'>0</div>
+			<md-input-container>
+				<label>Minimální hodnota</label>
+				<md-input id="min" type="number" v-model="pocatecniHodnotaMin" autofocus></md-input>
+			</md-input-container>
+			<md-input-container>
+				<label>Maximální hodnota</label>
+				<md-input id="max" type="number" v-model="pocatecniHodnotaMax"></md-input>
+			</md-input-container>
+			<!--<input id="batn" type="submit" value="Staniž se!" onclick="generujMezi()">-->
+			<md-button id="batn" class="md-raised md-accent" onclick="generujMezi()">Staniž se!</md-button>
+		</div>
+
+		<md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
+			<md-toolbar class="md-large">
+				<div class="md-toolbar-container">
+					<h3 class="md-title">Dostupné generátory</h3>
+				</div>
+			</md-toolbar>
+		</md-sidenav>
+
+		<script src="vendor/vue.min.js"></script>
+		<script src="vendor/vue-material.js"></script>
+		<script src="js/appka.js"></script>
+		<script src="js/prvky.js"></script>
+	</div>
 </body>
 
 </html>

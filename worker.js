@@ -1,22 +1,28 @@
 'use strict';
 
+let AKTUALNI_VERZE = "0.0.3";
+let PRISTI_VERZE = "0.0.4";
+
 this.addEventListener('install', function (event) {
 	event.waitUntil(
-		caches.open('v1').then(function (cache) {
+		caches.open(AKTUALNI_VERZE).then(function (cache) {
 			return cache.addAll([
 				'/genace/',
 				'/genace/index.html',
 				'/genace/js/appka.js',
 				'/genace/js/prvky.js',
 				'/genace/css/styl.css',
-				'/genace/manifest.json'
+				'/genace/manifest.json',
+				'/genace/vendor/vue.min.js',
+				'/genace/vendor/vue-material.js',
+				'/genace/vendor/vue-material.css'
 			]);
 		})
 	);
 });
 
 this.addEventListener('activate', function (event) {
-	var cacheWhitelist = ['v2'];
+	var cacheWhitelist = [PRISTI_VERZE];
 
 	event.waitUntil(
 		caches.keys().then(function (keyList) {
@@ -29,15 +35,16 @@ this.addEventListener('activate', function (event) {
 	);
 });
 
-this.addEventListener('fetch', function (event) {
-	event.respondWith(
-		caches.match(event.request).then(function (resp) {
-			return resp || fetch(event.request).then(function (response) {
-				return caches.open('v1').then(function (cache) {
-					cache.put(event.request, response.clone());
-					return response;
-				});
-			});
-		})
-	);
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.open(AKTUALNI_VERZE).then(function(cache) {
+      return cache.match(event.request).then(function(response) {
+        var fetchPromise = fetch(event.request).then(function(networkResponse) {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        })
+        return response || fetchPromise;
+      })
+    })
+  );
 });
