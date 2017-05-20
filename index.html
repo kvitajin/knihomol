@@ -35,18 +35,28 @@
 			<h2 class="md-title">Genace</h2>
 		</md-toolbar>
 
-		<div id="generator">
+		<div class="generator" v-if="typ_generatoru === 0">
 			<div class="displej" id='cisla_d'>0</div>
+
 			<md-input-container>
 				<label>Minimální hodnota</label>
 				<md-input id="min" type="number" v-model="pocatecniHodnotaMin" autofocus></md-input>
 			</md-input-container>
+
 			<md-input-container>
 				<label>Maximální hodnota</label>
 				<md-input id="max" type="number" v-model="pocatecniHodnotaMax"></md-input>
 			</md-input-container>
-			<!--<input id="batn" type="submit" value="Staniž se!" onclick="generujMezi()">-->
-			<md-button id="batn" class="md-raised md-accent" onclick="generujMezi()">Staniž se!</md-button>
+
+			<md-button class="md-raised md-accent" onclick="generujMezi()">Staniž se!</md-button>
+		</div>
+
+		<div class="generator" v-else-if="typ_generatoru === 1">
+			<div class="displej"><img id="cesty_d" src=""></img></div>
+
+			<md-button class="md-raised md-accent" onclick="generujCestu(2)">2 směry</md-button>
+			<md-button class="md-raised md-accent" onclick="generujCestu(3)">3 směry</md-button>
+			<md-button class="md-raised md-accent" onclick="generujCestu(4)">4 směry</md-button>
 		</div>
 
 		<md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">

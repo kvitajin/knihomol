@@ -12,6 +12,23 @@ function generujMezi() {
 	}
 }
 
+function generujCestu(pocet_smeru) {
+	let min = 0;
+	let max = pocet_smeru - 1;
+
+	let vygenerovane_cislo = Math.floor(Math.random() * (max - min + 1)) + (min * 1);
+
+	if (vygenerovane_cislo == 0) {
+		document.getElementById("cesty_d").src = "img/sipka_LEFT.svg";
+	} else if (vygenerovane_cislo == 1) {
+		document.getElementById("cesty_d").src = "img/sipka_RIGHT.svg";
+	} else if (vygenerovane_cislo == 2) {
+		document.getElementById("cesty_d").src = "img/sipka_UP.svg";
+	} else if (vygenerovane_cislo == 3) {
+		document.getElementById("cesty_d").src = "img/sipka_DOWN.svg";
+	}
+}
+
 function registrujWorkera() {
 	if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/genace/worker.js', { scope: '/genace/' })
@@ -39,7 +56,7 @@ function nastavMaterial() {
 		}
 	});
 
-	var App = new Vue({
+	window.appka = new Vue({
 		el: '#genace',
 		methods: {
 			toggleLeftSidenav() {
@@ -53,6 +70,7 @@ function nastavMaterial() {
 			}
 		},
 		data: {
+			typ_generatoru: 0,
 			pocatecniHodnotaMin: 0,
 			pocatecniHodnotaMax: 9
 		}
