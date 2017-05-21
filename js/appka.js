@@ -1,22 +1,23 @@
 'use strict';
 
-function generujMezi() {
+function generujMezi(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + (min * 1);
+}
+
+function generatorCiselVypocet() {
 	let min = document.getElementById("min").value;
 	let max = document.getElementById("max").value;
 
 	if (min > max) {
 		document.getElementById("cisla_d").innerHTML = "NaN";
 	} else {
-		let vygenerovane_cislo = Math.floor(Math.random() * (max - min + 1)) + (min * 1);
+		let vygenerovane_cislo = generujMezi(min, max);
 		document.getElementById("cisla_d").innerHTML = vygenerovane_cislo;
 	}
 }
 
-function generujCestu(pocet_smeru) {
-	let min = 0;
-	let max = pocet_smeru - 1;
-
-	let vygenerovane_cislo = Math.floor(Math.random() * (max - min + 1)) + (min * 1);
+function generatorSmeruVypocet(pocet_smeru) {
+	let vygenerovane_cislo = generujMezi(0, pocet_smeru - 1);
 
 	if (vygenerovane_cislo == 0) {
 		document.getElementById("cesty_d").src = "img/sipka_LEFT.svg";

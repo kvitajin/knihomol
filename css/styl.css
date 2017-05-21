@@ -6,15 +6,14 @@
 	max-width: 500px;
 	margin: auto;
 	height: 100%;
+}
+
+.md-card {
 	padding-left: 20px;
 	padding-right: 20px;
 }
-.displej {
+#cisla_d {
 	margin-top: 10%;
 	font-size: 500%;
 	text-align: center;
-}
-#cesty_d {
-	height: 50%;
-	width: 50%;
 }

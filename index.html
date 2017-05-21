@@ -21,7 +21,6 @@
 
 	<title>Generátor Náhodných Cest</title>
 	<link rel="stylesheet" href="css/styl.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 	<link rel="stylesheet" href="vendor/vue-material.css">
 </head>
 
@@ -36,28 +35,36 @@
 		</md-toolbar>
 
 		<div class="generator" v-if="typ_generatoru === 0">
-			<div class="displej" id='cisla_d'>0</div>
+			<md-card>
+				<md-card-header-text>
+					<div id="cisla_d">0</div>
+				</md-card-header-text>
 
-			<md-input-container>
-				<label>Minimální hodnota</label>
-				<md-input id="min" type="number" v-model="pocatecniHodnotaMin" autofocus></md-input>
-			</md-input-container>
+				<md-input-container>
+					<label>Minimální hodnota</label>
+					<md-input id="min" type="number" v-model="pocatecniHodnotaMin" autofocus></md-input>
+				</md-input-container>
 
-			<md-input-container>
-				<label>Maximální hodnota</label>
-				<md-input id="max" type="number" v-model="pocatecniHodnotaMax"></md-input>
-			</md-input-container>
+				<md-input-container>
+					<label>Maximální hodnota</label>
+					<md-input id="max" type="number" v-model="pocatecniHodnotaMax"></md-input>
+				</md-input-container>
 
-			<md-button class="md-raised md-accent" onclick="generujMezi()">Staniž se!</md-button>
+				<md-button class="md-raised md-accent" @click.native="generatorCiselVypocet()">Staniž se!</md-button>
+			</md-card>
 		</div>
 
 		<div class="generator" v-else-if="typ_generatoru === 1">
-			<div class="displej"><img id="cesty_d" src=""></img></div>
+			<md-card>
+				<md-card-media>
+					<img id="cesty_d" src="img/smery.svg">
+				</md-card-media>
 
-			<md-button class="md-raised md-accent" onclick="generujCestu(2)">2 směry</md-button>
-			<md-button class="md-raised md-accent" onclick="generujCestu(3)">3 směry</md-button>
-			<md-button class="md-raised md-accent" onclick="generujCestu(4)">4 směry</md-button>
+				<md-button class="md-raised md-accent" @click.native="generatorSmeruVypocet(2)">2 směry</md-button>
+				<md-button class="md-raised md-accent" @click.native="generatorSmeruVypocet(3)">3 směry</md-button>
+				<md-button class="md-raised md-accent" @click.native="generatorSmeruVypocet(4)">4 směry</md-button>
 		</div>
+		</md-card>
 
 		<md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
 			<md-toolbar class="md-large">
@@ -65,6 +72,14 @@
 					<h3 class="md-title">Dostupné generátory</h3>
 				</div>
 			</md-toolbar>
+			<md-list>
+				<md-list-item @click.native="appka.typ_generatoru = 0">
+					<md-icon><img src="img/seznam.svg"></md-icon><span>Generátor čísel</span>
+				</md-list-item>
+				<md-list-item @click.native="appka.typ_generatoru = 1">
+					<md-icon><img src="img/smery.svg"></md-icon><span>Generátor náhodných cest</span>
+				</md-list-item>
+			</md-list>
 		</md-sidenav>
 
 		<script src="vendor/vue.min.js"></script>
