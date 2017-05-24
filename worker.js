@@ -1,7 +1,7 @@
 'use strict';
 
-let AKTUALNI_VERZE = "0.0.3";
-let PRISTI_VERZE = "0.0.4";
+let AKTUALNI_VERZE = "0.1.0";
+let PRISTI_VERZE = "0.1.1";
 
 this.addEventListener('install', function (event) {
 	event.waitUntil(
@@ -15,7 +15,14 @@ this.addEventListener('install', function (event) {
 				'/genace/manifest.json',
 				'/genace/vendor/vue.min.js',
 				'/genace/vendor/vue-material.js',
-				'/genace/vendor/vue-material.css'
+				'/genace/vendor/vue-material.css',
+				'/genace/img/sipka_DOWN.svg',
+				'/genace/img/sipka_UP.svg',
+				'/genace/img/sipka_LEFT.svg',
+				'/genace/img/sipka_RIGHT.svg',
+				'/genace/img/menu.svg',
+				'/genace/img/seznam.svg',
+				'/genace/img/smery.svg'
 			]);
 		})
 	);
