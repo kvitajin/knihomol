@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  },
+  "dependencies": {
+    "vue-material": "^1.0.0-beta-7"
+  }
+}

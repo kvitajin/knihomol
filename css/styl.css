@@ -2,6 +2,10 @@
     display: none;
 }
 
+html, body, #genace {
+	background-color: #eceff1;
+}
+
 .generator {
 	max-width: 500px;
 	margin: auto;

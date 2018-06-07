@@ -20,14 +20,15 @@
 	<link rel="apple-touch-icon" type="image/svg+xml" href="ikona.svg">
 
 	<title>Generátor Náhodných Cest</title>
+	<link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.css">
+	<link rel="stylesheet" href="css/md-genace.css">
 	<link rel="stylesheet" href="css/styl.css">
-	<link rel="stylesheet" href="vendor/vue-material.css">
 </head>
 
 <body>
-	<div id="genace" v-cloak>
-		<md-toolbar>
-			<md-button class="md-icon-button" @click.native="toggleLeftSidenav">
+	<div id="genace" class="page-container md-layout-column" v-cloak>
+		<md-toolbar class="md-primary">
+			<md-button class="md-icon-button" v-on:click="showNavigation = true">
 				<img src="img/menu.svg">
 			</md-button>
 
@@ -40,17 +41,17 @@
 					<div id="cisla_d">0</div>
 				</md-card-header-text>
 
-				<md-input-container>
+				<md-field>
 					<label>Minimální hodnota</label>
 					<md-input id="min" type="number" v-model="pocatecniHodnotaMin" autofocus></md-input>
-				</md-input-container>
+				</md-field>
 
-				<md-input-container>
+				<md-field>
 					<label>Maximální hodnota</label>
 					<md-input id="max" type="number" v-model="pocatecniHodnotaMax"></md-input>
-				</md-input-container>
+				</md-field>
 
-				<md-button class="md-raised md-accent" @click.native="generatorCiselVypocet()">Staniž se!</md-button>
+				<md-button class="md-raised md-accent" v-on:click="generatorCiselVypocet()">Staniž se!</md-button>
 			</md-card>
 		</div>
 
@@ -60,33 +61,31 @@
 					<img id="cesty_d" src="img/smery.svg">
 				</md-card-media>
 
-				<md-button class="md-raised md-accent" @click.native="generatorSmeruVypocet(2)">2 směry</md-button>
-				<md-button class="md-raised md-accent" @click.native="generatorSmeruVypocet(3)">3 směry</md-button>
-				<md-button class="md-raised md-accent" @click.native="generatorSmeruVypocet(4)">4 směry</md-button>
+				<md-button class="md-raised md-accent" v-on:click="generatorSmeruVypocet(2)">2 směry</md-button>
+				<md-button class="md-raised md-accent" v-on:click="generatorSmeruVypocet(3)">3 směry</md-button>
+				<md-button class="md-raised md-accent" v-on:click="generatorSmeruVypocet(4)">4 směry</md-button>
 			</md-card>
 		</div>
 
-		<md-sidenav class="md-left" ref="leftSidenav" @open="open('Left')" @close="close('Left')">
+		<md-drawer class="md-left" ref="leftSidenav" :md-active.sync="showNavigation">
 			<md-toolbar class="md-large">
-				<div class="md-toolbar-container">
-					<h3 class="md-title">Dostupné generátory</h3>
+				<div class="md-transparent" md-elevation="0">
+					<span class="md-title">Dostupné generátory</span>
 				</div>
 			</md-toolbar>
 			<md-list>
-				<md-list-item @click.native="appka.typ_generatoru = 0">
-					<md-icon><img src="img/seznam.svg"></md-icon><span>Generátor čísel</span>
+				<md-list-item v-on:click="typ_generatoru = 0">
+					<md-icon><img src="img/seznam.svg"></md-icon><span class="md-list-item-text">Generátor čísel</span>
 				</md-list-item>
-				<md-list-item @click.native="appka.typ_generatoru = 1">
-					<md-icon><img src="img/smery.svg"></md-icon><span>Generátor náhodných cest</span>
+				<md-list-item v-on:click="typ_generatoru = 1">
+					<md-icon><img src="img/smery.svg"></md-icon><span class="md-list-item-text">Generátor náhodných cest</span>
 				</md-list-item>
 			</md-list>
-		</md-sidenav>
-
-		<script src="vendor/vue.min.js"></script>
-		<script src="vendor/vue-material.js"></script>
-		<script src="js/appka.js"></script>
-		<script src="js/prvky.js"></script>
+		</md-drawer>
 	</div>
+	<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-material@beta/dist/vue-material.js"></script>
+	<script src="js/appka.js"></script>
+	<script src="js/prvky.js"></script>
 </body>
-
 </html>

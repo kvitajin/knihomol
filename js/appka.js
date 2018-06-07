@@ -5,8 +5,8 @@ function generujMezi(min, max) {
 }
 
 function generatorCiselVypocet() {
-	let min = document.getElementById("min").value;
-	let max = document.getElementById("max").value;
+	let min = Number(document.getElementById("min").value);
+	let max = Number(document.getElementById("max").value);
 
 	if (min > max) {
 		document.getElementById("cisla_d").innerHTML = "NaN";
@@ -45,35 +45,19 @@ function registrujWorkera() {
 }
 
 function nastavMaterial() {
-	Vue.use(VueMaterial);
-
-	Vue.material.registerTheme('default', {
-		primary: 'teal',
-		accent: 'red',
-		warn: 'red',
-		background: {
-			color: 'blue-grey',
-			hue: 50
-		}
-	});
+	Vue.use(VueMaterial.default);
 
 	window.appka = new Vue({
 		el: '#genace',
-		methods: {
-			toggleLeftSidenav() {
-				this.$refs.leftSidenav.toggle();
-			},
-			open(ref) {
-				console.log('Opened: ' + ref);
-			},
-			close(ref) {
-				console.log('Closed: ' + ref);
-			}
-		},
 		data: {
 			typ_generatoru: 0,
 			pocatecniHodnotaMin: 0,
-			pocatecniHodnotaMax: 9
+			pocatecniHodnotaMax: 9,
+			showNavigation: false
+		},
+		methods: {
+			generatorCiselVypocet: generatorCiselVypocet,
+			generatorSmeruVypocet: generatorSmeruVypocet
 		}
 	});
 
