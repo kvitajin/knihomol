@@ -3,15 +3,26 @@
   "short_name": "Genace",
   "description": "Progresivní aplikace pro generování náhodných čísel",
   "lang": "cs",
-  "start_url": "/genace",
+  "start_url": ".",
   "scope": "/genace",
   "display": "standalone",
   "orientation": "natural",
   "theme_color": "#009688",
   "icons": [
     {
-      "src": "ikona.svg",
+      "src": "/genace/ikona.svg",
+      "sizes": "48x48 72x72 96x96 128x128 168x168 192x192 256x256 512x512 1024x1024",
       "type": "image/svg+xml"
+    },
+    {
+      "src": "/genace/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/genace/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
   ],
   "background_color": "#eceff1"

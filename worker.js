@@ -7,15 +7,16 @@ this.addEventListener('install', function (event) {
 	event.waitUntil(
 		caches.open(AKTUALNI_VERZE).then(function (cache) {
 			return cache.addAll([
-				'/genace/',
+				'/genace',
 				'/genace/index.html',
 				'/genace/js/appka.js',
 				'/genace/js/prvky.js',
 				'/genace/css/styl.css',
+				'/genace/css/md-genace.css',
 				'/genace/manifest.json',
-				'/genace/vendor/vue.min.js',
-				'/genace/vendor/vue-material.js',
-				'/genace/vendor/vue-material.css',
+				'https://unpkg.com/vue-material@beta/dist/vue-material.min.js',
+				'https://unpkg.com/vue@2.5.16/dist/vue.min.js',
+				'https://unpkg.com/vue-material@beta/dist/vue-material.min.css',
 				'/genace/img/sipka_DOWN.svg',
 				'/genace/img/sipka_UP.svg',
 				'/genace/img/sipka_LEFT.svg',
