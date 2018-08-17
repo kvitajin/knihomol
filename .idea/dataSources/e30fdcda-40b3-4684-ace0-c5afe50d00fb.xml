@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="knihomol@127.0.0.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="knihomol">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="far"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sys"/>
+    <table id="8" parent="2" name="autor"/>
+    <table id="9" parent="2" name="kniha"/>
+    <column id="10" parent="8" name="id_autor">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="11" parent="8" name="jmeno">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="12" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_autor</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="13" parent="9" name="id_kniha">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="14" parent="9" name="nazev">
+      <Position>2</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="9" name="stav">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="9" name="ck_id_autor">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="17" parent="9" name="ck_id_autor">
+      <ColNames>ck_id_autor</ColNames>
+    </index>
+    <key id="18" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_kniha</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="19" parent="9" name="ck_id_autor">
+      <ColNames>ck_id_autor</ColNames>
+      <RefSchemaName>knihomol</RefSchemaName>
+      <RefTableName>autor</RefTableName>
+      <RefColNames>id_autor</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

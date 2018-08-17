@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 function generujMezi(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + (min * 1);
 }
@@ -29,10 +29,10 @@ function generatorSmeruVypocet(pocet_smeru) {
 		document.getElementById("cesty_d").src = "img/sipka_DOWN.svg";
 	}
 }
-
+*/
 function registrujWorkera() {
 	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/genace/worker.js', { scope: '/genace/' })
+		navigator.serviceWorker.register('/worker.js', { scope: '/knihomol/' })				//todo tady jsem odebral knihomol/worker.js
 			.then(function (reg) {
 				// registration worked
 				console.log("Registration succeeded. Scope is " + reg.scope);
@@ -48,7 +48,7 @@ function nastavMaterial() {
 	Vue.use(VueMaterial.default);
 
 	window.appka = new Vue({
-		el: '#genace',
+		el: '#knihomol',
 		data: {
 			typ_generatoru: 0,
 			pocatecniHodnotaMin: 0,
@@ -56,8 +56,8 @@ function nastavMaterial() {
 			showNavigation: false
 		},
 		methods: {
-			generatorCiselVypocet: generatorCiselVypocet,
-			generatorSmeruVypocet: generatorSmeruVypocet
+			/*generatorCiselVypocet: generatorCiselVypocet,
+			generatorSmeruVypocet: generatorSmeruVypocet*/
 		}
 	});
 

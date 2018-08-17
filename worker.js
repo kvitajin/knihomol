@@ -1,29 +1,23 @@
 'use strict';
 
 let AKTUALNI_VERZE = "0.1.0";
-let PRISTI_VERZE = "0.1.1";
+let PRISTI_VERZE = "0.0.2";
 
 this.addEventListener('install', function (event) {
 	event.waitUntil(
 		caches.open(AKTUALNI_VERZE).then(function (cache) {
 			return cache.addAll([
-				'/genace',
-				'/genace/index.html',
-				'/genace/js/appka.js',
-				'/genace/js/prvky.js',
-				'/genace/css/styl.css',
-				'/genace/css/md-genace.css',
-				'/genace/manifest.json',
-				'https://unpkg.com/vue-material@beta/dist/vue-material.min.js',
-				'https://unpkg.com/vue@2.5.16/dist/vue.min.js',
-				'https://unpkg.com/vue-material@beta/dist/vue-material.min.css',
-				'/genace/img/sipka_DOWN.svg',
-				'/genace/img/sipka_UP.svg',
-				'/genace/img/sipka_LEFT.svg',
-				'/genace/img/sipka_RIGHT.svg',
-				'/genace/img/menu.svg',
-				'/genace/img/seznam.svg',
-				'/genace/img/smery.svg'
+				'/',
+				'/index.php',
+				'/js/appka.js',
+				'/js/prvky.js',
+				'/css/styl.css',
+				'/manifest.json',
+				'/vendor/vue.min.js',
+				'/vendor/vue-material.js',
+				'/vendor/vue-material.css',
+				'/img/menu.svg',
+				'/img/seznam.svg'
 			]);
 		})
 	);

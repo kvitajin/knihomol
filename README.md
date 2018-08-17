@@ -1,3 +1,3 @@
-# Generátor Náhodných Cest -> GeNaCe -> Genace (GNC)
+# Knihomol
 
-a very simple generator of ranomd number in a given range. To be fair, it's basically just an offline ServiceWorker demo.
+a very simple list of owned books and book wishlist.
