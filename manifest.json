@@ -13,11 +13,11 @@
       "src": "img/book.svg",
       "type": "image/svg+xml"
     }, {
-      "src": "img/whiteBook.png",
+      "src": "img/blackBook.png",
       "sizes": "192x192",
       "type": "image/png"
     },{
-      "src": "img/bigWhiteBook.png",
+      "src": "img/bigBlackBook.png",
       "sizes": "512x512",
       "type": "image/png"
     }, {

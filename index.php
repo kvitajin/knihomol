@@ -3,6 +3,19 @@
 <?php error_reporting(E_ALL);?>
 
 <head>
+    <?php
+    // Enforce the use of HTTPS
+    header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
+    // Prevent Clickjacking
+    header("X-Frame-Options: SAMEORIGIN");
+    // Block Access If XSS Attack Is Suspected
+    header("X-XSS-Protection: 1; mode=block");
+    // Prevent MIME-Type Sniffing
+    header("X-Content-Type-Options: nosniff");
+    // Referrer Policy
+    header("Referrer-Policy: no-referrer-when-downgrade");
+    require_once ("favicon.php");
+    ?>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta name="theme-color" content="#009688">
@@ -24,19 +37,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
 	<link rel="stylesheet" href="css/md-knihomol.css">
 	<link rel="stylesheet" href="css/styl.css">
-    <?php
-    // Enforce the use of HTTPS
-    header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
-    // Prevent Clickjacking
-    header("X-Frame-Options: SAMEORIGIN");
-    // Block Access If XSS Attack Is Suspected
-    header("X-XSS-Protection: 1; mode=block");
-    // Prevent MIME-Type Sniffing
-    header("X-Content-Type-Options: nosniff");
-    // Referrer Policy
-    header("Referrer-Policy: no-referrer-when-downgrade");
-    require_once ("favicon.php");
-    ?>
+
 </head>
 
 <body>
