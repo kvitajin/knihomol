@@ -4,14 +4,15 @@
  * Date: 2.8.18
  * Time: 11:48
  */
+require_once 'heslo.php';
 
 class Database {
     private $pdo;
 
     function pripojPDO(){
         $dsn='mysql:dbname=knihomol_www3_cz;host=95.168.204.247;charset=utf8';
-        $username='knihomol.www3.cz';
-        $passwd='6xg1C75fDm';
+        $username=USERNAME;
+        $passwd=DBPASSWD;
         $dbName='far';
 
 

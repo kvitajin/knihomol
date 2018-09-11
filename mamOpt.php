@@ -5,6 +5,5 @@
  * Time: 0:31
  */
 ?>
-<form >
-    <input type="radio" name="stav" value="1" checked>Mám
-    <input type="radio" name="stav" value="2">Chci
+<input type="radio" name="stav[]" value="1" checked> Mám
+<input type="radio" name="stav[]" value="2"> Chci

@@ -7,7 +7,7 @@
 require_once ("heslo.php");
 session_start();
 $passwd=$_POST["passwd"];
-$saved=passwd();
+$saved=PASSWD;
 
 if ($passwd==$saved){
     $_SESSION["passwd"]=htmlentities($passwd,ENT_QUOTES);
