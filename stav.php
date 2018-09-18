@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: kvitajin
  * Date: 14.8.18
  * Time: 0:14
@@ -14,11 +13,11 @@
     //print_r($stav);
     echo "<br>";
     $_SESSION['old']=array();
-    echo " <form action='setStav.php' method='post'>";
+    echo "<form action='setStav.php' method='post'>";
     $i=0;
     foreach ( $stav as $value){
         $_SESSION['old'[$value['nazev']]]=$value['stav'];           //presype multidiemnzionalni pole do jmeno=>stav
-        //echo $value['stav'];
+        echo $value['id_kniha'] . " - " . $value['stav'];
         if ($value["stav"]==1){
             require ("mamOpt.php");
         }else{
@@ -27,7 +26,7 @@
         echo " - " .htmlentities($value["nazev"], ENT_QUOTES) . "\t" ."<br>";
         $i++;
     }
-    echo "<input type='submit' value='Změň stav' > </form>"
+    echo "</form>"
     //echo "<br><br>";
     //print_r($old);
     ?>

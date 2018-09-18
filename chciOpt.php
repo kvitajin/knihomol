@@ -5,5 +5,5 @@
  * Time: 0:41
  */
 ?>
-<input type="radio" name="stav[]" value="1" > Mám
-<input type="radio" name="stav[]" value="2" checked> Chci
+<input type="radio" name=<?php echo $value['id_kniha'];?> value="1" > Mám
+<input type="radio" name=<?php echo $value['id_kniha'];?> value="2" checked> Chci
